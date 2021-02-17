@@ -13,6 +13,11 @@ const Title = () => {
         </Link>
       </h4>
       <h4 className={styles.pageLinks}> 
+        <Link href='/Write'>
+          <a className={styles.a}>Write a Review</a>
+        </Link>
+      </h4>
+      <h4 className={styles.pageLinks}> 
         <Link href='/About'>
           <a className={styles.a}>About</a>
         </Link>

@@ -1,0 +1,27 @@
+import Image from 'next/image'
+
+const Stars = ({rating}) => {
+
+  let fills = [];
+  for(let i = 0; i < 5; i++) {
+    if(rating - .7 >= 0) {
+      fills.push('/starFilled.png');
+      rating -= 1;
+    } else if (rating - .4 >= 0) {
+      fills.push('/starHalf.png');
+      rating -= 1;
+    } else {
+      fills.push('/starEmpty.png');
+    }
+  }
+
+  return (
+    <span>
+      {fills.map((star) => {
+        return <Image src={star} width='15px' height='15px' />
+      })}
+    </span>
+  )
+}
+
+export default Stars;

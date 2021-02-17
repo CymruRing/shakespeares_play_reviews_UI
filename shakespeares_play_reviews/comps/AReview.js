@@ -1,5 +1,6 @@
 import styles from '../styles/reviewStyles.module.css'
-import Image from 'next/image'
+import Stars from './Stars.js'
+import React, { useState } from 'react'
 
 // formats individual reviews 
 const AReview = ({data}) => {
@@ -15,12 +16,20 @@ const AReview = ({data}) => {
     return `${month} ${day}, ${year}`;
   };
   
+  // highlight on hover
+  const [highlight, toggle] = useState('AReview');
+
 
   return (
-    <div className={styles.AReview}>
-    <strong>{data.author}</strong>
-      <strong> {data.rating}</strong>
-      <Image src='/StarRatings.png' alt='stars' width='125' height='25' />
+    <div className = {styles[highlight]} 
+      onMouseEnter = {() => toggle('AReviewHighlight')}
+      onMouseLeave = {() => toggle('AReview')} 
+    >
+      <strong>{data.author}</strong>
+      <br/>
+      <br/>
+      <strong> {data.rating} </strong>
+      <Stars rating={data.rating}/>
       <p>{formatDate(data.publish_date)}</p>
       <p>{data.body}</p>
     </div>

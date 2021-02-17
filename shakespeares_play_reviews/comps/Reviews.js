@@ -23,14 +23,14 @@ class Reviews extends React.Component {
           "author": "Fay Lemke"
         },
         {
-          "rating": 4.1,
+          "rating": 1.6,
           "publish_date": "2016-09-03T23:25:47.642545Z",
           "id": "9784620626604",
           "body": "How bitter a thing it is to look into happiness through another man's eyes!",
           "author": "Tatyana Olson"
         },
         {
-          "rating": 1,
+          "rating": 1.7,
           "publish_date": "2016-04-05T23:25:47.642350Z",
           "id": "9783221620815",
           "body": "The fool doth think he is wise, but the wise man knows himself to be a fool.",

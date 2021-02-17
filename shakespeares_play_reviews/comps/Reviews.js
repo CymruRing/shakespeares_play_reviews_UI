@@ -28,9 +28,31 @@ class Reviews extends React.Component {
           "id": "9784620626604",
           "body": "How bitter a thing it is to look into happiness through another man's eyes!",
           "author": "Tatyana Olson"
+        },
+        {
+          "rating": 1,
+          "publish_date": "2016-04-05T23:25:47.642350Z",
+          "id": "9783221620815",
+          "body": "The fool doth think he is wise, but the wise man knows himself to be a fool.",
+          "author": "Kaley Schiller"
+        },
+        {
+          "rating": 0,
+          "publish_date": "2016-09-08T23:25:47.642388Z",
+          "id": "9793364045816",
+          "body": "Can one desire too much of a good thing?.",
+          "author": "Fay Lemke"
+        },
+        {
+          "rating": 3.5,
+          "publish_date": "2016-05-03T23:25:47.642545Z",
+          "id": "9784620626617",
+          "body": "How bitter a thing it is to look into happiness through another man's eyes!",
+          "author": "Tatyana Olson"
         }
       ],
-      sortingOrder: 'newest'
+      sortingOrder: 'newest',
+      average: 2.7
     };
   }
 
@@ -52,6 +74,12 @@ class Reviews extends React.Component {
     render() {
       return (
         <div>
+        <div className={styles.avgContainer}>
+          <h5>Average Rating: </h5>
+          <h1 className={styles.average}>{this.state.average}</h1>
+        </div>
+
+          <div className={styles.Reviews}>
           <label>Order </label>
           <select value={this.state.sortingOrder} onChange={this.orderReviews.bind(this)}>
             <option value='newest'>Newest to Oldest</option>
@@ -59,7 +87,6 @@ class Reviews extends React.Component {
             <option value='highest'>Highest to Lowest</option>
             <option value='lowest'>Lowest to Highest</option>
           </select>
-          <div className={styles.Reviews}>
             {this.state.reviews.map((data) => {
               return <AReview key={data.id} data={data} />
             })}

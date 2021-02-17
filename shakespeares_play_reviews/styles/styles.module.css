@@ -9,8 +9,12 @@
 }
 
 .Reviews {
-    width: 90%;
-    margin: auto;
+  background-color: thistle;
+  width: 90%;
+}
+
+.avgContainer{
+  background-color: teal;
 }
 
 .AReview {
@@ -20,3 +24,5 @@
   padding: 5px 5px 5px 5px;
   
 }
+
+/* @media (max-width: ) */

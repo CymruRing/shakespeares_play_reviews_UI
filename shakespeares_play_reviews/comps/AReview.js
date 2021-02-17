@@ -1,4 +1,5 @@
 import styles from '../styles/styles.module.css'
+import Image from 'next/image'
 
 // formats individual reviews 
 const AReview = ({data}) => {
@@ -19,6 +20,7 @@ const AReview = ({data}) => {
     <div className={styles.AReview}>
     <strong>{data.author}</strong>
       <strong> {data.rating}</strong>
+      <Image src='/StarRatings.png' alt='stars' width='125' height='25' />
       <p>{formatDate(data.publish_date)}</p>
       <p>{data.body}</p>
     </div>

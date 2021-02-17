@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import styles from '../styles/styles.module.css'
+import styles from '../styles/reviewStyles.module.css'
 import Title from './Title'
 
 

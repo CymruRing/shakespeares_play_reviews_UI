@@ -1,4 +1,4 @@
-import styles from '../styles/styles.module.css'
+import styles from '../styles/reviewStyles.module.css'
 import Link from 'next/link'
 
 // The title bar of site

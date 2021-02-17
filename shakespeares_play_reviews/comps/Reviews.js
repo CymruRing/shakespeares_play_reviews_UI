@@ -1,6 +1,6 @@
 import React from 'react'
 import AReview from './AReview.js'
-import styles from '../styles/styles.module.css'
+import styles from '../styles/reviewStyles.module.css'
 
 // main stateful component for organizing reviews 
 class Reviews extends React.Component {
@@ -74,10 +74,10 @@ class Reviews extends React.Component {
     render() {
       return (
         <div>
-        <div id={styles.avgContainer}>
-          <h5 id={styles.avgRating}>Average Rating: </h5>
-          <h1 id={styles.average}>{this.state.average}</h1>
-        </div>
+          <div id={styles.avgContainer}>
+            <h5 id={styles.avgRating}>Average Rating: </h5>
+            <h1 id={styles.average}>{this.state.average}</h1>
+          </div>
 
           <div className={styles.Reviews}>
           <div id={styles.sortingOrder}>

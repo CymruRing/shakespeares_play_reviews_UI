@@ -1,4 +1,4 @@
-import styles from '../styles/styles.module.css'
+import styles from '../styles/reviewStyles.module.css'
 import Image from 'next/image'
 
 // formats individual reviews 

@@ -29,18 +29,42 @@ class Reviews extends React.Component {
           "body": "How bitter a thing it is to look into happiness through another man's eyes!",
           "author": "Tatyana Olson"
         }
-    ]
+      ],
+      sortingOrder: 'newest'
     };
   }
 
+  // change the order of reviews with built in quick sort
+  orderReviews(e) {
+    let arr = this.state.reviews;
+    if (e.target.value == 'newest') {
+      arr = arr.sort((a, b) => (new Date(a.publish_date) < new Date(b.publish_date)) ? 1 : -1);
+    } else if (e.target.value == 'oldest') {
+      arr = arr.sort((a, b) => (new Date(a.publish_date) > new Date(b.publish_date)) ? 1 : -1);
+    } else if (e.target.value == 'highest') {
+      arr = arr.sort((a, b) => (a.rating < b.rating) ? 1 : -1);
+    } else if (e.target.value == 'lowest') {
+      arr = arr.sort((a, b) => (a.rating > b.rating) ? 1 : -1);
+    }
+    this.setState({reviews: arr, sortingOrder: e.target.value});
+  }
   
     render() {
       return (
-      <div className={styles.Reviews}>
-        {this.state.reviews.map((data) => {
-          return <AReview key={data.id} data={data} />
-        })}
-      </div>
+        <div>
+          <label>Order </label>
+          <select value={this.state.sortingOrder} onChange={this.orderReviews.bind(this)}>
+            <option value='newest'>Newest to Oldest</option>
+            <option value='oldest'>Oldest to Newest</option>
+            <option value='highest'>Highest to Lowest</option>
+            <option value='lowest'>Lowest to Highest</option>
+          </select>
+          <div className={styles.Reviews}>
+            {this.state.reviews.map((data) => {
+              return <AReview key={data.id} data={data} />
+            })}
+          </div>
+        </div>
     );
   }
 };

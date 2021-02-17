@@ -9,9 +9,9 @@ const About = () => {
         chops to finish out the UI. That’s where this repo comes in.  This repo is the 
         UI for Shakespeare's play reviews. 
         <br/><br/>
-        It is built with <strong>Next.js</strong>for streamlined server side rendering and 
-        <strong>React</strong> for a streamlined production.  For more see the repo for your
-        self here ________________ and try it out for yourself.
+        It is built with <strong>Next.js</strong> for streamlined server side rendering and 
+        <strong>React</strong> for a streamlined production.  For more see the repo here 
+        and try it out for yourself.
         <br/><br/>
         <em>Note: The Api for this app is not public at this time.</em>
       </p>

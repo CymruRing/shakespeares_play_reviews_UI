@@ -5,16 +5,16 @@ import Link from 'next/link'
 const Title = () => {
   return (
   <div className={styles.titleBar}>
-    <h1>Shakespeare's Play Reviews</h1>
+    <h1 id={styles.title}>Shakespeare's Play Reviews</h1>
     <div>
       <h4 className={styles.pageLinks}>
         <Link href='/'>
-          <a>Reviews</a>
+          <a className={styles.a}>Reviews</a>
         </Link>
       </h4>
       <h4 className={styles.pageLinks}> 
         <Link href='/About'>
-          <a>About</a>
+          <a className={styles.a}>About</a>
         </Link>
       </h4>
     </div>

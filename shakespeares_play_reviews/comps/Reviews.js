@@ -74,19 +74,21 @@ class Reviews extends React.Component {
     render() {
       return (
         <div>
-        <div className={styles.avgContainer}>
-          <h5>Average Rating: </h5>
-          <h1 className={styles.average}>{this.state.average}</h1>
+        <div id={styles.avgContainer}>
+          <h5 id={styles.avgRating}>Average Rating: </h5>
+          <h1 id={styles.average}>{this.state.average}</h1>
         </div>
 
           <div className={styles.Reviews}>
-          <label>Order </label>
-          <select value={this.state.sortingOrder} onChange={this.orderReviews.bind(this)}>
-            <option value='newest'>Newest to Oldest</option>
-            <option value='oldest'>Oldest to Newest</option>
-            <option value='highest'>Highest to Lowest</option>
-            <option value='lowest'>Lowest to Highest</option>
-          </select>
+          <div id={styles.sortingOrder}>
+            <label>Order </label>
+            <select value={this.state.sortingOrder} onChange={this.orderReviews.bind(this)}>
+              <option value='newest'>Newest to Oldest</option>
+              <option value='oldest'>Oldest to Newest</option>
+              <option value='highest'>Highest to Lowest</option>
+              <option value='lowest'>Lowest to Highest</option>
+            </select>
+          </div>
             {this.state.reviews.map((data) => {
               return <AReview key={data.id} data={data} />
             })}

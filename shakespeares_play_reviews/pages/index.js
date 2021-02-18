@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import sampleData from '../test/sampleData.json'
 import api from '../api.js'
 
 import Reviews from '../comps/Reviews'
@@ -25,6 +25,11 @@ Home.getInitialProps = async () => {
   return data; 
 }
 
-
+/* Uncomment for testing
+// Fetch sample data for jest testing
+Home.getInitialProps = () => {
+  return sampleData;
+}
+*/
 
 export default Home;

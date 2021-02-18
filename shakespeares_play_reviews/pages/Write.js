@@ -18,15 +18,20 @@ class Write extends React.Component {
 
   // post request to db
   submit() {
+    let tempRating = this.state.rating;
+    tempRating = (tempRating < 0) ? 0 : tempRating;
+    tempRating = (tempRating > 5) ? 5 : tempRating;
     let review = {
-      rating: this.state.rating,
+      rating: tempRating,
       body: this.state.body,
-      author: this.state.author
+      author: this.state.name
     };
     const publish_date = (new Date(Date.now()).toISOString());
     review.publish_date = publish_date;
     // add date and id to review
     console.log('This is where an api post request would go.');
+    window.alert(`Your data was recorded as: ${review.author}, ${review.rating}, ${review.publish_date}, \
+${review.body}.  However, we are not currently taking more reviews.  Sorry for the inconvenience.`);
     this.setState({name: '', rating: '', body: ''});
   }
 

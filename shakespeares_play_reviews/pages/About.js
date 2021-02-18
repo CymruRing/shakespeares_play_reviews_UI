@@ -10,10 +10,14 @@ const About = () => {
         UI for Shakespeare's play reviews. 
         <br/><br/>
         It is built with <strong>Next.js</strong> for streamlined server side rendering and 
-        <strong>React</strong> for a streamlined production.  For more see the repo here 
+        <strong> React</strong> for a streamlined production.  Jest and puppeteer are intended
+        for testing soon as some hiccups with their use with next.js are smoothed over.  For more
+        see the repo  
+        <a href='https://github.com/CymruRing/shakespeares_play_reviews_UI'> here </a>  
         and try it out for yourself.
         <br/><br/>
-        <em>Note: The Api for this app is not public at this time.</em>
+        <em>Note: The Api for this app is not public at this time but, there is some sample data.
+          See index.js for more.</em>
       </p>
       <p className={styles.p}></p>
     </>

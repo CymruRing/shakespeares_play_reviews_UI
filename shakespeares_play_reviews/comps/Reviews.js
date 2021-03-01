@@ -6,24 +6,30 @@ import styles from '../styles/reviewStyles.module.css'
 class Reviews extends React.Component {
   constructor(props) {
     super(props);
-    
     let destruct = props.props;
+
+    // init state
     let avg = 0;
     let count = 0;
     let reviews = [];
+    let displayed = [];
     for(let i in destruct) {
       avg += destruct[i].rating;
       reviews.push(destruct[i]);
+      if (count < 10) {
+        displayed.push(destruct[i]);
+      }
       count += 1;
     }
     avg = (avg/count).toFixed(1);
-
+    
     this.state = {
       reviews: reviews,
+      shownReviews: displayed,
       sortingOrder: 'newest',
-      average: String(avg)
+      average: String(avg),
+      page: 0
     };
-
   }
 
   // change the order of reviews with built in quick sort
@@ -39,6 +45,25 @@ class Reviews extends React.Component {
       arr = arr.sort((a, b) => (a.rating > b.rating) ? 1 : -1);
     }
     this.setState({reviews: arr, sortingOrder: e.target.value});
+  }
+  
+  // move through reviews displayed
+  click(e) {
+    
+    let page = this.state.page;
+    let result = [];
+    let temp = this.state.reviews;
+    if(e.target.id === 'right' && (page + 1) * 10 < temp.length) {
+      page += 1;
+    } else if(e.target.id === 'left' && (page - 1) >= 0) {
+      page -= 1;
+    }
+    let i = page * 10;
+    while (i < (page * 10) + 10 && temp[i]) {
+      result.push(temp[i]);
+      i++;
+    }
+    this.setState({page: page, shownReviews: result});
   }
   
     render() {
@@ -59,9 +84,13 @@ class Reviews extends React.Component {
               <option value='lowest'>Lowest to Highest</option>
             </select>
           </div>
-            {this.state.reviews.map((data) => {
+            {this.state.shownReviews.map((data) => {
               return <AReview key={data.id} data={data} />
             })}
+          </div>
+          <div className={styles.pageButtons}>
+            <button id='left' onClick={this.click.bind(this)}>Left</button>
+            <button id='right' onClick={this.click.bind(this)}>Right</button>
           </div>
         </div>
     );
